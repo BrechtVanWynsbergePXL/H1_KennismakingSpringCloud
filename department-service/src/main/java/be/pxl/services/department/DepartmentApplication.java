@@ -1,7 +1,9 @@
 package be.pxl.services.department;
 
 
-
+import be.pxl.services.department.model.Department;
+import be.pxl.services.department.repository.DepartmentRepository;
+import org.springframework.context.annotation.Bean;
 
 public class DepartmentApplication {
 
@@ -19,14 +21,14 @@ public class DepartmentApplication {
 //				.apiInfo(new ApiInfoBuilder().version("1.0").title("Department API").description("Documentation Department API v1.0").build());
 //	}
 //
-//	@Bean
-//	DepartmentRepository repository() {
-//		DepartmentRepository repository = new DepartmentRepository();
-//		repository.add(new Department(1L, "Development"));
-//		repository.add(new Department(1L, "Operations"));
-//		repository.add(new Department(2L, "Development"));
-//		repository.add(new Department(2L, "Operations"));
-//		return repository;
-//	}
+	@Bean
+	DepartmentRepository repository() {
+		DepartmentRepository repository = new DepartmentRepository();
+		repository.add(new Department(1L, "Development"));
+		repository.add(new Department(1L, "Operations"));
+		repository.add(new Department(2L, "Development"));
+		repository.add(new Department(2L, "Operations"));
+		return repository;
+	}
 //
 }
