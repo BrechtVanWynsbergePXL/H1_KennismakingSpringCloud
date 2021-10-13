@@ -8,7 +8,7 @@ import be.pxl.services.organization.model.Organization;
 
 public class OrganizationRepository {
 
-	private List<Organization> organizations = new ArrayList<>();
+	private final List<Organization> organizations = new ArrayList<>();
 	
 	public Organization add(Organization organization) {
 		organization.setId((long) (organizations.size()+1));
@@ -18,10 +18,7 @@ public class OrganizationRepository {
 	
 	public Organization findById(Long id) {
 		Optional<Organization> organization = organizations.stream().filter(a -> a.getId().equals(id)).findFirst();
-		if (organization.isPresent())
-			return organization.get();
-		else
-			return null;
+		return organization.orElse(null);
 	}
 	
 	public List<Organization> findAll() {
