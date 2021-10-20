@@ -16,14 +16,14 @@ import java.util.List;
 @Configuration
 public class ProxyApi {
 
-	//@Autowired
+	@Autowired
 	ZuulProperties properties;
 
 	@Primary
 	@Bean
 	public SwaggerResourcesProvider swaggerResourcesProvider() {
 		return () -> {
-			List<SwaggerResource> resources = new ArrayList<>();
+			List resources = new ArrayList();
 			properties.getRoutes().values().stream()
 					.forEach(route -> resources.add(createResource(route.getServiceId(), route.getId(), "2.0")));
 			return resources;
@@ -37,5 +37,5 @@ public class ProxyApi {
 		swaggerResource.setSwaggerVersion(version);
 		return swaggerResource;
 	}
-
 }
+

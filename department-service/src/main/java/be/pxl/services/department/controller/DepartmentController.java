@@ -3,6 +3,7 @@ package be.pxl.services.department.controller;
 import java.util.List;
 
 import be.pxl.services.department.model.Department;
+import be.pxl.services.department.model.Employee;
 import be.pxl.services.department.repository.DepartmentRepository;
 
 
@@ -18,7 +19,7 @@ public class DepartmentController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentController.class);
 
 	@Autowired
-    DepartmentRepository repository;
+	DepartmentRepository repository;
 	@Autowired
 	EmployeeClient employeeClient;
 
@@ -53,5 +54,4 @@ public class DepartmentController {
 		departments.forEach(d -> d.setEmployees(employeeClient.findByDepartment(d.getId())));
 		return departments;
 	}
-
 }

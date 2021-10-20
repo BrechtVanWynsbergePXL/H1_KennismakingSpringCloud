@@ -10,7 +10,7 @@ public class Employee {
 	public Employee() {
 
 	}
-	
+
 	public Employee(String name, int age, String position) {
 		this.name = name;
 		this.age = age;

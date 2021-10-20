@@ -11,7 +11,7 @@ public class Department {
 	private List<Employee> employees = new ArrayList<>();
 
 	public Department() {
-		
+
 	}
 
 	public Department(Long organizationId, String name) {
