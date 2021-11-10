@@ -10,9 +10,15 @@ eureka:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
+logging:
+  file: /logs/discovery-service.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
 spring:
   zipkin:
     base-url: http://localhost:9411/
   sleuth:
     sampler:
-      probability: 1.0
+    probability: 1.0
